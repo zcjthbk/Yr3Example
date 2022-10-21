@@ -1,0 +1,37 @@
+---
+title: "githubfile01"
+author: "Jo Saul"
+date: "14/04/2022"
+output:
+  html_document:
+    keep_md: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(faux)
+```
+
+
+```{r}
+#simulate our data
+set.seed(123456)
+simdf <- rnorm_multi(n=100,
+            mu=c(50,75),
+            sd=c(20,25),
+            r=0.7,
+            varnames = c('predictor', 'outcome'))
+
+```
+
+```{r}
+#graph the data
+ggplot(simdf, aes(x=predictor, y=outcome)) +
+  geom_point(color='Green') +
+  theme_minimal()
+```
+
+Instruction:
+
+1. Change the colour of the points on this graph
